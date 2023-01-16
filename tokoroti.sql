@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2020 at 07:16 AM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.2.32
+-- Generation Time: Jan 16, 2023 at 06:09 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `dbpw192_18410100054`
+-- Database: `tokoroti`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(200) NOT NULL,
   `password` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `admin`
@@ -52,7 +52,7 @@ CREATE TABLE `bom_produk` (
   `kode_produk` varchar(100) NOT NULL,
   `nama_produk` varchar(200) NOT NULL,
   `kebutuhan` varchar(200) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `bom_produk`
@@ -67,7 +67,14 @@ INSERT INTO `bom_produk` (`kode_bom`, `kode_bk`, `kode_produk`, `nama_produk`, `
 ('B0002', 'M0003', 'P0002', 'Maryam', '2'),
 ('B0003', 'M0002', 'P0003', 'Kue tart coklat', '2'),
 ('B0003', 'M0003', 'P0003', 'Kue tart coklat', '5'),
-('B0003', 'M0005', 'P0003', 'Kue tart coklat', '5');
+('B0003', 'M0005', 'P0003', 'Kue tart coklat', '5'),
+('B0005', 'M0001', 'P0005', 'Choux Strawberry', '200'),
+('B0005', 'M0002', 'P0005', 'Choux Strawberry', '200'),
+('B0005', 'M0003', 'P0005', 'Choux Strawberry', '200'),
+('B0006', 'M0001', 'P0006', 'TART', '500'),
+('B0006', 'M0002', 'P0006', 'TART', '25'),
+('B0006', 'M0003', 'P0006', 'TART', '300'),
+('B0006', 'M0004', 'P0006', 'TART', '250');
 
 -- --------------------------------------------------------
 
@@ -82,16 +89,17 @@ CREATE TABLE `customer` (
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `telp` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `customer`
 --
 
 INSERT INTO `customer` (`kode_customer`, `nama`, `email`, `username`, `password`, `telp`) VALUES
-('C0002', 'Rafi Akbar', 'a.rafy@gmail.com', 'rafi', '$2y$10$/UjGYbisTPJhr8MgmT37qOXo1o/HJn3dhafPoSYbOlSN1E7olHIb.', '0856748564'),
 ('C0003', 'Nagita Silvana', 'bambang@gmail.com', 'Nagita', '$2y$10$47./qEeA/y3rNx3UkoKmkuxoAtmz4ebHSR0t0Bc.cFEEg7cK34M3C', '087804616097'),
-('C0004', 'Nadiya', 'nadiya@gmail.com', 'nadiya', '$2y$10$6wHH.7rF1q3JtzKgAhNFy.4URchgJC8R.POT1osTAWmasDXTTO7ZG', '0898765432');
+('C0004', 'Nadiya', 'nadiya@gmail.com', 'nadiya', '$2y$10$6wHH.7rF1q3JtzKgAhNFy.4URchgJC8R.POT1osTAWmasDXTTO7ZG', '0898765432'),
+('C0005', 'FIFI', 'nhfifi1205@gmail.com', 'Fi', '$2y$10$yXncRd7d1I7j8wazDtl3mePkUypJSfJcMtvbkgQ1mnWOur.dh1alK', '085706295160'),
+('C0006', 'test1', 'testingfnh22@gmail.com', 'testing', '$2y$10$6ZGmpbdrD0hwUgX9WUeJ8.rozC8DEd/SShwd277vYvklk6vGcvBgq', '085706295160');
 
 -- --------------------------------------------------------
 
@@ -106,7 +114,7 @@ CREATE TABLE `inventory` (
   `satuan` varchar(200) NOT NULL,
   `harga` int(11) NOT NULL,
   `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `inventory`
@@ -114,10 +122,10 @@ CREATE TABLE `inventory` (
 
 INSERT INTO `inventory` (`kode_bk`, `nama`, `qty`, `satuan`, `harga`, `tanggal`) VALUES
 ('M0001', 'Tepung', '76', 'Kg', 1000, '2020-07-26'),
-('M0002', 'Pengembang', '0', 'Kg', 1000, '2020-07-27'),
+('M0002', 'Pengembang', '1000', 'Kg', 1000, '2023-01-10'),
 ('M0003', 'Cream', '17', 'Kg', 3000, '2020-07-26'),
 ('M0004', 'Keju', '82', 'Kg', 4000, '2020-07-26'),
-('M0005', 'Coklat', '0', 'Kg', 5000, '2020-07-27');
+('M0005', 'Coklat', '5000', 'Kg', 5000, '2023-01-10');
 
 -- --------------------------------------------------------
 
@@ -132,7 +140,7 @@ CREATE TABLE `keranjang` (
   `nama_produk` varchar(100) NOT NULL,
   `qty` int(11) NOT NULL,
   `harga` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `keranjang`
@@ -140,7 +148,8 @@ CREATE TABLE `keranjang` (
 
 INSERT INTO `keranjang` (`id_keranjang`, `kode_customer`, `kode_produk`, `nama_produk`, `qty`, `harga`) VALUES
 (16, 'C0003', 'P0002', 'Maryam', 5, 15000),
-(17, 'C0003', 'P0003', 'Kue tart coklat', 2, 100000);
+(17, 'C0003', 'P0003', 'Kue tart coklat', 2, 100000),
+(21, 'C0005', 'P0001', 'Roti Sobek', 1, 10000);
 
 -- --------------------------------------------------------
 
@@ -154,7 +163,7 @@ CREATE TABLE `produk` (
   `image` text NOT NULL,
   `deskripsi` text NOT NULL,
   `harga` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `produk`
@@ -163,7 +172,13 @@ CREATE TABLE `produk` (
 INSERT INTO `produk` (`kode_produk`, `nama`, `image`, `deskripsi`, `harga`) VALUES
 ('P0001', 'Roti Sobek', '5f1d915d27dc3.jpg', '																								Roti Enak Sobek Sobek aww\r\n																					', 10000),
 ('P0002', 'Maryam', '5f1d9154715a4.jpg', '				Roti araym\r\n						', 15000),
-('P0003', 'Kue tart coklat', '5f1d924614831.jpg', 'Kuetar dengan varian rasa coklat enak dan lumer rasanya\r\n			', 100000);
+('P0003', 'Kue tart coklat', '5f1d924614831.jpg', 'Kuetar dengan varian rasa coklat enak dan lumer rasanya\r\n			', 100000),
+('P0005', 'Choux Strawberry', '63bc2910d79b9.jpeg', '\r\n			', 30000),
+('P0006', 'TART', '63bc2ffacf2fc.jpeg', '\r\n			', 150000),
+('P0013', 'Custer Bread', '63c4c95d59e5d.jpg', '\r\n			', 20000),
+('P0014', 'Fresh Berry Cream', '63c4c975ca475.jpg', '\r\n			', 30000),
+('P0015', 'Smoked Beef Cheese Bread Roll', '63c4c989c51ee.jpg', '\r\n			', 30000),
+('P0016', 'Victoria Sponge', '63c4c9a103c3b.jpg', '\r\n			', 25000);
 
 -- --------------------------------------------------------
 
@@ -188,19 +203,22 @@ CREATE TABLE `produksi` (
   `terima` varchar(200) NOT NULL,
   `tolak` varchar(200) NOT NULL,
   `cek` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `produksi`
 --
 
 INSERT INTO `produksi` (`id_order`, `invoice`, `kode_customer`, `kode_produk`, `nama_produk`, `qty`, `harga`, `status`, `tanggal`, `provinsi`, `kota`, `alamat`, `kode_pos`, `terima`, `tolak`, `cek`) VALUES
-(8, 'INV0001', 'C0002', 'P0003', 'Kue tart coklat', 1, 100000, 'Pesanan Baru', '2020-07-27', 'Jawa Timur', 'Surabaya', 'Jl.Tanah Merah Indah 1', '60129', '2', '1', 1),
+(8, 'INV0001', 'C0002', 'P0003', 'Kue tart coklat', 1, 100000, 'Pesanan Baru', '2020-07-27', 'Jawa Timur', 'Surabaya', 'Jl.Tanah Merah Indah 1', '60129', '2', '1', 0),
 (9, 'INV0002', 'C0002', 'P0001', 'Roti Sobek', 3, 10000, 'Pesanan Baru', '2020-07-27', 'Jawa Barat', 'Bandung', 'Jl.Jati Nangor Blok C, 10', '30712', '0', '0', 1),
 (10, 'INV0003', 'C0003', 'P0002', 'Maryam', 2, 15000, '0', '2020-07-27', 'Jawa Tengah', 'Yogyakarta', 'Jl.Malioboro, Blok A 10D', '30123', '1', '0', 0),
 (11, 'INV0003', 'C0003', 'P0003', 'Kue tart coklat', 1, 100000, '0', '2020-07-27', 'Jawa Tengah', 'Yogyakarta', 'Jl.Malioboro, Blok A 10D', '30123', '1', '0', 0),
 (12, 'INV0003', 'C0003', 'P0001', 'Roti Sobek', 1, 10000, '0', '2020-07-27', 'Jawa Tengah', 'Yogyakarta', 'Jl.Malioboro, Blok A 10D', '30123', '1', '0', 0),
-(13, 'INV0004', 'C0004', 'P0002', 'Maryam', 1, 15000, 'Pesanan Baru', '2020-07-26', 'Jawa Timur', 'Sidoarjo', 'Jl.KH Syukur Blok C 18 A', '50987', '0', '0', 0);
+(13, 'INV0004', 'C0004', 'P0002', 'Maryam', 1, 15000, 'Pesanan Baru', '2020-07-26', 'Jawa Timur', 'Sidoarjo', 'Jl.KH Syukur Blok C 18 A', '50987', '0', '0', 0),
+(14, 'INV0005', 'C0006', 'P0001', 'Roti Sobek', 1, 10000, 'Pesanan Baru', '2323-01-10', 'Jakarta', 'Jakarta Selatan ', 'Kebagusan No 44 Pasar Minggu ', '56789', '0', '0', 1),
+(15, 'INV0005', 'C0006', 'P0002', 'Maryam', 1, 15000, 'Pesanan Baru', '2323-01-10', 'Jakarta', 'Jakarta Selatan ', 'Kebagusan No 44 Pasar Minggu ', '56789', '0', '0', 1),
+(16, 'INV0005', 'C0006', 'P0006', 'TART', 1, 150000, 'Pesanan Baru', '2323-01-10', 'Jakarta', 'Jakarta Selatan ', 'Kebagusan No 44 Pasar Minggu ', '56789', '0', '0', 1);
 
 -- --------------------------------------------------------
 
@@ -214,7 +232,7 @@ CREATE TABLE `report_cancel` (
   `kode_produk` varchar(100) NOT NULL,
   `jumlah` varchar(100) NOT NULL,
   `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -228,7 +246,7 @@ CREATE TABLE `report_inventory` (
   `nama_bahanbaku` varchar(100) NOT NULL,
   `jml_stok_bk` int(11) NOT NULL,
   `tanggal` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -242,7 +260,7 @@ CREATE TABLE `report_omset` (
   `jumlah` int(11) NOT NULL,
   `total_omset` int(11) NOT NULL,
   `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -257,7 +275,7 @@ CREATE TABLE `report _penjualan` (
   `nama_produk` varchar(100) NOT NULL,
   `jumlah_terjual` int(11) NOT NULL,
   `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -272,7 +290,7 @@ CREATE TABLE `report_produksi` (
   `nama_produk` varchar(100) NOT NULL,
   `qty` int(11) NOT NULL,
   `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -288,7 +306,7 @@ CREATE TABLE `report_profit` (
   `jumlah` varchar(11) NOT NULL,
   `total_profit` varchar(11) NOT NULL,
   `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -375,19 +393,19 @@ ALTER TABLE `report_profit`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `produksi`
 --
 ALTER TABLE `produksi`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `report_cancel`

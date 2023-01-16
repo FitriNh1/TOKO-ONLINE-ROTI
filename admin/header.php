@@ -9,7 +9,7 @@ if(!isset($_SESSION['admin'])){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Rafy Backery</title>
+	<title>Kumi Bakery</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css">
@@ -80,9 +80,10 @@ if(!isset($_SESSION['admin'])){
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> Admin <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="proses/logout.php">Log Out</a></li>
+							<li><a href="user_login.php">Log Out</a></li>
 						</ul>
 					</li>
+					
 
 				</ul>
 			</div><!-- /.navbar-collapse -->

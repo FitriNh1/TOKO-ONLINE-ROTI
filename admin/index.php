@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Rafy Backery</title>
+	<title>Kumi Bakery</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.css">
@@ -20,7 +20,7 @@
 </head>
 <body>
   <script type="text/javascript">
-       alert('SEKEDAR MEMBERI INFORMASI KEPADA PAK BAMABANG UNTUK LOGIN ADMIN \n \n Username = admin \n Password = admin');
+       alert('Masukan username dan Password');
   </script>
   <script type="text/javascript">
     $( document ).ready(function() {
